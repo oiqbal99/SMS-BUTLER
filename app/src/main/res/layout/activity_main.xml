@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:padding="15dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/main_activity_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:textColor="@color/white"
+        android:fontFamily="@font/oxygen"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:text="@string/title_messages"
+        android:textSize="32sp"
+        />
+
+    <LinearLayout
+        android:id="@+id/image_button_container"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/main_activity_title"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal"
+        android:layout_alignParentRight="true"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/main_activity_add_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/Green"
+            android:src="@drawable/ic_baseline_add_24"
+            android:visibility="gone"
+            android:onClick="onAddImageIconClick"
+            android:contentDescription="@string/add"
+            />
+
+
+        <ImageButton
+            android:id="@+id/main_activity_delete_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onDeleteButtonClick"
+            android:visibility="gone"
+            android:backgroundTint="@color/Red"
+            android:src="@drawable/ic_baseline_delete_24"
+            android:contentDescription="@string/delete"
+            />
+    </LinearLayout>
+
+
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/automatic_reply_state"
+        android:layout_below="@id/image_button_container"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:textOn="@string/on"
+        android:textOff="@string/off"
+        android:showText="true"
+        android:onClick="onAutoSwitch"
+        android:layout_height="wrap_content"
+        android:text="@string/auto_reply_on"
+        />
+
+
+    <LinearLayout
+        android:layout_below="@id/automatic_reply_state"
+        android:id="@+id/active_message_container"
+        android:onClick="onActiveMessageContainerClick"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/active_submenu"
+            android:layout_width="match_parent"
+            android:background="@drawable/list_item_container_layout_border"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:fontFamily="@font/oxygen"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:text="@string/active_replies"
+            />
+
+        <RelativeLayout
+            android:id="@+id/active_item_holder_layout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/list_item_container_layout_border">
+            <TextView
+                android:id="@+id/no_selected_active_responses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:fontFamily="@font/oxygen"
+                android:text="@string/no_active_reply_selected"
+                />
+
+            <TextView
+                android:id="@+id/active_response_display_text_view"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/text_view_round_border"
+                android:fontFamily="@font/oxygen"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                android:textSize="16sp"
+                />
+
+            <CheckBox
+                android:id="@+id/active_response_display_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:layout_marginEnd="5dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="5dp"
+                android:onClick="onActiveCheckBoxClick"
+                android:visibility="gone"
+                android:layout_alignParentRight="true"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/other_replies_submenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list_item_container_layout_border"
+        android:layout_below="@id/active_message_container"
+        android:textColor="@color/white"
+        android:fontFamily="@font/oxygen"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:text="@string/other_replies"
+        />
+
+
+
+
+    <Button
+        android:id="@+id/local_add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="addButtonWhenEmpty"
+        android:text="@string/add_new_response_title" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/other_replies_submenu"
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>

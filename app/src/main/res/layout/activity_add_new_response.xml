@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".AddNewResponse">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <TextView
+            android:id="@+id/add_new_response_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textColor="@color/white"
+            android:fontFamily="@font/oxygen"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:text="@string/add_new_response_title"
+            android:textSize="32sp"
+            />
+
+        <EditText
+            android:layout_below="@+id/add_new_response_title"
+            android:id="@+id/add_new_response_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:background="@drawable/text_view_round_border"
+            android:textColor="@color/white"
+            android:fontFamily="@font/oxygen"
+            android:padding="10dp"
+            android:layout_margin="5dp"
+            android:textColorHint="@color/white"
+            android:hint="@string/response_prompt"
+            android:autofillHints="@string/response_prompt" />
+
+        <LinearLayout
+            android:id="@+id/automatic_prompt_container"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/add_new_response_edit_text"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/active_response_prompt"
+                android:layout_width="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/Automatic"
+                android:layout_height="wrap_content"
+                />
+            <CheckBox
+                android:id="@+id/add_responses_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/automatic_prompt_container">
+            <Button
+                android:id="@+id/cancel_btn"
+                style="@style/CardView.Dark"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@color/Lapis"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel"
+                />
+            <Button
+                android:id="@+id/add_new_response_button"
+                style="@style/CardView.Dark"
+                android:layout_width="0dp"
+                android:background="@color/Lapis"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:onClick="addMessage"
+                android:layout_height="wrap_content"
+                android:text="@string/add"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>
